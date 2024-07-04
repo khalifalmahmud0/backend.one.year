@@ -1,8 +1,7 @@
 const nodemailer = require("nodemailer");
 
-let sendMail = async () => {
+let sendMail = async (name, mail) => {
   try {
-    // Correct SMTP configuration for Gmail
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -10,13 +9,11 @@ let sendMail = async () => {
         pass: "eprh lses trbb uwyp",
       },
     });
-
     const info = await transporter.sendMail({
-      from: '"Khalif AL Mahmud 👻" <gadgets.khalif@gmail.com>', // sender address
-      to: "gadgets.khalif@gmail.com", // list of receivers
-      subject: "Hello ✔", // Subject line
-      text: "Hello world?", // plain text body
-      html: "<b>Hello world?</b>", // html body
+      from: `"${name}👻" <${mail}>`,
+      to: `${mail}`,
+      subject: `Hello ✔ from ${name}`,
+      html: `${name} - ${mail}`,
     });
     console.log("Message sent: %s", info.messageId);
   } catch (error) {

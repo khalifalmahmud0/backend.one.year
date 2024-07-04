@@ -14,6 +14,11 @@ let schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  verify: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 });
 let USERSIGNUP = mongoose.model("auth", schema);
 module.exports = USERSIGNUP;

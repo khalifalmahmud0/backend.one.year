@@ -7,7 +7,6 @@ let signinController = async (req, res) => {
     let userdata = await USERSIGNUP.findOne({ mail: mail });
     let hashPass = userdata?.pass;
     let check = await bcrypt.compare(pass, hashPass);
-
     return check ? res.send(`Login Success`) : res.send(`Fail to Login`);
   } catch (e) {
     console.log(e);
