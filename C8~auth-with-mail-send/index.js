@@ -1,6 +1,5 @@
 require("dotenv").config();
 let express = require("express");
-const mongoose = require("mongoose");
 const signupController = require("./controller/signupController");
 const signinController = require("./controller/signinController");
 const connectDB = require("./db/connection");
