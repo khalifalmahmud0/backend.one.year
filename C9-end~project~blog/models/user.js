@@ -14,6 +14,10 @@ let schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  verify: {
+    type: Boolean,
+    default: false,
+  },
 });
 let USERS = mongoose.model("user", schema);
 module.exports = USERS;

@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const USERS = require("../models/user");
+const sendMail = require("../utils/sendMail");
 let signUp = async (req, res) => {
   try {
     let { name, mail, pass } = req.body;
@@ -10,9 +11,16 @@ let signUp = async (req, res) => {
       return res.send(`User Already Exist`);
     }
     let data = new USERS(finalData);
-    let ifsave = data.save();
-    ifsave ? res.send(req.body) : "Something Went Wrong";
-  } catch {
+    let ifsave = await data.save();
+
+    if (ifsave) {
+      await sendMail(name, mail);
+      res.send(req.body);
+    } else {
+      res.send("Something Went Wrong");
+    }
+  } catch (e) {
+    console.log(e);
     res.send(`Internal Server Error!`);
   }
 };

@@ -1,8 +1,8 @@
 const USERS = require("../models/user");
 
 let mailVerification = async (req, res) => {
-  let mail = req.params.mail;
-  let data = USERS.findOneAndUpdate(
+  let mail = await req.params.mail;
+  let data = await USERS.findOneAndUpdate(
     { mail: mail },
     { verify: true },
     { new: true }
