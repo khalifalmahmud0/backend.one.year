@@ -6,6 +6,7 @@ const signIn = require("./controllers/signIn");
 const mailVerification = require("./controllers/mailVerification");
 const connectDB = require("./db/connection");
 const CreateBlog = require("./controllers/blog/create");
+const GetAll = require("./controllers/blog/get_all");
 
 let app = express();
 let PORT = process.env.PORT || 7000;
@@ -18,6 +19,7 @@ app.post("/signup", signUp);
 app.get("/signin", signIn);
 // Blog
 app.post("/blog/create", CreateBlog);
+app.get("/blog/get_all", GetAll);
 app.get("/:mail", mailVerification);
 
 app.listen(PORT, "localhost", () => {
