@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-
+// Create Schema
 let schema = new mongoose.Schema({
   title: {
     type: String,
