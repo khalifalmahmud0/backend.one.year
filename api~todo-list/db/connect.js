@@ -6,7 +6,7 @@ let ConnectDB = async () => {
     let connectionInstance = await mongoose.connect(CONNECTION_URL);
     return connectionInstance.connection.host;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 module.exports = ConnectDB;

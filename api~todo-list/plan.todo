@@ -1,0 +1,7 @@
+% Todo List APP 
+    - a default user will be create while db connect and it will be created on users collection => admin@admin.com , admin1234 => type=admin
+    - create user with type=user 
+    - show all user => only who is admin 
+    - edit user => only user 
+    - delete user => only admin 
+    - single user => admin & user 
